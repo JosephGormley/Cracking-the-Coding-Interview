@@ -1,0 +1,16 @@
+#!/usr/local/bin/ruby
+
+#The following program is based off a series of interviewing questions.
+
+#<Q?.> <Question>
+
+
+
+
+ #-----------#
+# Main Method #
+ #-----------#
+#Main Method
+
+
+#End of Main
