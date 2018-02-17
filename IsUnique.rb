@@ -4,18 +4,18 @@
 
 #1. Is Unique: Implement an algorithm to determine if a string has all unique characters. What if you cannot use additional data structures?
 
- #-----------------------------------#
-# Accepts a string, returns a boolean #
-# in reference to if a string is      #
-# unique or not in terms of chracters # 
- #-----------------------------------#
+ #------------------------------------#
+# Accepts a string, returns a boolean  #
+# in reference to if a string is       #
+# unique or not in terms of characters # 
+ #------------------------------------#
 def isUnique? string
  
    # Variables used to determine uniqueness. 
    firstChar, secondChar = ""
 
    # Sort and return the string provided. 
-   sortedString = string.chomp.chars.sort.join
+   sortedString = string.chars.sort.join
 
    # If two consecutive characters are the same, string is not unique. 
    sortedString.each_char do |char|    
@@ -44,7 +44,7 @@ end
    end
 
    # Collect input. 
-   stringToTest = ARGV[0]
+   stringToTest = ARGV[0].chomp
 
    # Is input unique?  
    if isUnique? stringToTest 
