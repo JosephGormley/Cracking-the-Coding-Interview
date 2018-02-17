@@ -46,7 +46,6 @@ end
    # Collect input. 
    stringToTest = ARGV[0]
 
-
    # Is input unique?  
    if isUnique? stringToTest 
       puts "#{stringToTest} has all unique characters."
