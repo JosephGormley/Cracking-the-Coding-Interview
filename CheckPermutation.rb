@@ -15,8 +15,8 @@ def checkPermutation? string0, string1
    end
 
    # Sort strings, makes checking permutation efficient.
-   sortedString0 = string0.char.sort.join
-   sortedString1 = string1.char.sort.join
+   sortedString0 = string0.chars.sort.join
+   sortedString1 = string1.chars.sort.join
    
    # Compare strings, if not equal, not permutations of one another.
    if sortedString0.eql? sortedString1   
@@ -39,14 +39,14 @@ end
    end
 
    # Collect inputs. 
-   string0 = ARGV[1].chomp
-   string1 = ARGV[2].chomp
+   string0 = ARGV[0].chomp
+   string1 = ARGV[1].chomp
 
    # Are arguements permutations of one another?
    if checkPermutation?(string0.chomp, string1.chomp)
-      puts "#{string0} is a permutation of #{string1}"
+      puts "\"#{string0}\"is a permutation of \"#{string1}\""
    else
-      puts "#{string0} is not a permutation of #{string2}"
+      puts "\"#{string0}\" is not a permutation of \"#{string1}\""
    end
 
    return
