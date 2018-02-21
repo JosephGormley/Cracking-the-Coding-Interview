@@ -23,12 +23,16 @@ def URLify charArray, trueLength
    # Count the number of spaces in string, this will determine new length
    (trueLength - 1).downto(0) do |i|
       if charArray[i] == " "
-         puts "h"
+         // Count number of spaces here. 
       end
    end
 
-   # Determine new length of string
-   
+   # Determine new length of string.
+   # Note: This will also be in reference to the starting point to create updated string. 
+   newLength = 
+
+   # Update string to methods requirements. 
+   # This will be a loop. 
 
    return
 end
@@ -47,7 +51,8 @@ end
    charArray = ARGV[0].chars.to_a
    trueLength = ARGV[1].to_i
 
-   URLify charArray, trueLength
+   # Update and print out string.
+   puts URLify charArray, trueLength
 
    return
 # End of Main
