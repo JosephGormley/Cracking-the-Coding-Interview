@@ -2,7 +2,7 @@
 
 #The following program is based off a series of interviewing questions.
 
-#2, Check Permutation: Given two strings, write a method to decide if one is a permutation of the other. 
+#2. Check Permutation: Given two strings, write a method to decide if one is a permutation of the other. 
 
  #------------------------------------#
 # Is string0 a permutation of string1? #
