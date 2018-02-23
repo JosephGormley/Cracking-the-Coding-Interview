@@ -10,7 +10,6 @@
  #-----------#
 # Main Method #
  #-----------#
-#Main Method
 
 
-#End of Main
+# End of Main
