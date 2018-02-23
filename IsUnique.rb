@@ -36,8 +36,8 @@ end
 # Main Method #
  #-----------#	
    # Error checks on input.
-      if ARGV.length != 1
-         puts "Format: /isUnique.rb <string_to_be_tested>"
+   if ARGV.length != 1
+      puts "Format: /isUnique.rb <string_to_be_tested>
       return
    end
 
