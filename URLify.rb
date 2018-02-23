@@ -22,7 +22,6 @@ def URLify charArray, length
 
    numberOfSpaces = 0
  
-   # puts "Counting spaces"
    # Count the number of spaces in string, this will determine new length
    (length - 1).downto(0) do |i|
       if charArray[i] == " "
@@ -33,18 +32,15 @@ def URLify charArray, length
    # Determine index to iterate new URL string.  
    newCurr = length + (numberOfSpaces * 2) - 1 
   
-   # puts "Updating String to URL"    
    # Update string to URL requirements. (Iterating from right to left). 
    (length - 1).downto(0) do |oldCurr|
       if charArray[oldCurr] == " "
-         # puts "Found a space!"
          # Insert "%20" in place of newCurr 
          charArray[newCurr] = "0"
          charArray[newCurr - 1] = "2"
          charArray[newCurr - 2] = "%"
          newCurr -= 3
       else
-         # puts "Just a normal character"
          # Insert oldCurr in place of newCurr
          charArray[newCurr] = charArray[oldCurr]
          newCurr -= 1
