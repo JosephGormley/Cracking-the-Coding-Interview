@@ -10,7 +10,7 @@
 #
 #   Input:  "Tact Coa"
 #   Output: "True (permutations: "Taco cat", "atco cta", etc.)
-
+                        
  #--------------------------------------#
 # Searches a given string and determines # 
 # if it is a permutation of a palindrom  #
@@ -22,14 +22,18 @@ def palindromePermutation? string
   
    # Add map sets to hash table. 
    string.chars.each do |character|
+      # It is assumed spaces are not counted according to example given. 
+      if character == " "
+         next
+      end
       occurances[character] = occurances[character] += 1
    end
 
    # Does the string follow the principles of a palindrome permutation?
    # Note: This means there should be one odd occurance, and all other chars occur an even number of times. 
    oddChar = false 
-   hash.each do |occurance|
-      if occurance % 2 == 0 # Is odd.
+   occurances.each do |character, occurance|
+      if occurance % 2 == 1 # Is odd.
          if !oddChar         
             oddChar = true
          else
@@ -53,7 +57,11 @@ end
 
    stringToBeTested = ARGV[0].chomp   
 
-   palindromePermutation? stringToBeTested
-
+   if palindromePermutation? stringToBeTested
+      puts "#{stringToBeTested} is a permutation of a palindrome."
+   else 
+      puts "#{stringToBeTested} is not a permutation of a palindrome."
+   end
+ 
    return
 # End of Main
