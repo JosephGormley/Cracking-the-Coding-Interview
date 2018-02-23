@@ -18,23 +18,37 @@
 # @string: String to format as a URL            #
 # @length: Length of the 'true' size of the URL #
  #---------------------------------------------#
-def URLify charArray, trueLength
+def URLify charArray, length
+
+   numberOfSpaces = 0
 
    # Count the number of spaces in string, this will determine new length
-   (trueLength - 1).downto(0) do |i|
+   length - 1.downto(0) do |i|
       if charArray[i] == " "
-         // Count number of spaces here. 
+         numberOfSpaces += 1 
       end
    end
 
-   # Determine new length of string.
-   # Note: This will also be in reference to the starting point to create updated string. 
-   newLength = 
+   # Determine index to iterate new URL string.  
+   newCurr = length + (numberOfSpaces * 2) - 1 
+      
+   # Update string to URL requirements. (Iterating from right to left). 
+   length - 1.downto(0) do |oldCurr|
+      if charArray[oldCurr] == " "
+         # Insert "%20" in place of newCurr 
+         charArray[newCurr] = "0"
+         charArray[newCurr - 1] = "2"
+         charArray[newCurr - 2] = "%"
+         newCurr -= 3
+      else
+         # Insert oldCurr in place of newCurr
+         charArray[newCurr] = charArray[oldCurr]
+         newCurr -= 1
+      end
+        
+   end   
 
-   # Update string to methods requirements. 
-   # This will be a loop. 
-
-   return
+   return 
 end
 
 
@@ -45,6 +59,7 @@ end
    # Error checks on input. 
    if ARGV.length != 2 || !/\d+/.match(ARGV[1])
       puts "Format: /URLify.rb <string> <trueLength>"
+      return
    end
 
    # Collect inputs.
@@ -52,7 +67,10 @@ end
    trueLength = ARGV[1].to_i
 
    # Update and print out string.
-   puts URLify charArray, trueLength
+   URLify(charArray, trueLength)
+
+   # Print updated string. 
+   puts charArray
 
    return
 # End of Main
