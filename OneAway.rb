@@ -28,30 +28,17 @@ def oneAway? string0, string1
    
    oneEdit = false;
    # Iterate through shorter string. 
-   0.upto shorterLength |i|
+   0.upto shorterLength do |i|
       # If not the same character, at the same position, edit is needed. 
-      if string0[i] != string1[i]
-         if oneEdit 
-            return false; # Second edit required, return false. 
-         else 
-            oneEdit = true; # First edit found. 
-         end
-      end
+      if string0[i] != string1[i]  
+        # Found edit at this point, rest of string must be equal to return true. 
+        if (string0[i .. -1].eql? string1[i+1 .. -1]) || (string0[i+1 .. -1].eql? string1[i .. -1]) || (string0[i+1 .. -1] .eql? string1[i+1 .. -1])
+           return true
+        else 
+           return false
+        end
+      end          
    end
-     
-   # At this point the strings are zero/one edit away from each other up until
-   # the length of the shortest string. Must check for number of additional chars. 
-   if abs (string0.length - string1.length) = 1
-      unless oneEdit 
-         return true
-      end
-   end
-
-   # The two strings have equal characters up until the length of the shorter string.
-   # But the difference between the lengths is greater than one, therefore it will take
-   # more than one edit to fix. 
-   return false 
-   
 end
 
 
